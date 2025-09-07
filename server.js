@@ -11,7 +11,6 @@ const tarefaRoutes = require('./routes/tarefaRoutes');
 const app = express();
 
 // Conectar ao banco de dados
-
 connectDB();
 
 // Middleware
@@ -26,32 +25,32 @@ app.use('/api/tarefas', tarefaRoutes);
 app.get('/health', (req, res) => {
   res.status(200).json({ 
     status: 'OK', 
-    message: 'Server is running',
-    timestamp: new Date().toISOString()
+    mensagem: 'Servidor está em execução',
+    horario: new Date().toISOString()
   });
 });
 
 // Rota padrão para endpoints não encontrados
 app.use('*', (req, res) => {
   res.status(404).json({ 
-    error: 'Endpoint not found',
-    message: `The requested endpoint ${req.originalUrl} does not exist.`
+    erro: 'Endpoint não encontrado',
+    mensagem: `O endpoint solicitado ${req.originalUrl} não existe.`
   });
 });
 
 // Middleware de tratamento de erros
 app.use((error, req, res, next) => {
-  console.error('Error:', error);
+  console.error('Erro:', error);
   res.status(error.status || 500).json({
-    error: error.message || 'Internal Server Error',
-    ...(process.env.NODE_ENV === 'development' && { stack: error.stack })
+    erro: error.message || 'Erro interno do servidor',
+    ...(process.env.NODE_ENV === 'development' && { pilha: error.stack })
   });
 });
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
 
 module.exports = app;
