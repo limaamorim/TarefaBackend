@@ -106,5 +106,6 @@ Retorna o status do servidor.
 
 ---
 
-## 📝 Licença
-Este projeto está sob a licença MIT.
+## 👨‍💻 Autor
+
+Desenvolvido por José Fernando de Lima Amorim
