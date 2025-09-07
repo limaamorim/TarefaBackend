@@ -101,7 +101,6 @@ Retorna o status do servidor.
   "titulo": "Estudar Node.js",
   "descricao": "Praticar Express e MongoDB",
   "concluida": false,
-  "categoria": "Estudos"
 }
 ```
 
